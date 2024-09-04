@@ -1,0 +1,12 @@
+mavros_node:
+  ros__parameters:
+    system_id: 1
+    component_id: 240
+    target_system_id: 1
+    target_component_id: 1
+    # startup_px4_usb_quirk: false
+    # plugin_blacklist: []
+    # plugin_whitelist: []
+    fcu_url: /dev/ttyACM0:230400
+    # fcu_protocol: v2.0
+    # gcs_url: udp://@
