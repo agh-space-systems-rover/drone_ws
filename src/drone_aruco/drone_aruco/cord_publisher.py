@@ -32,8 +32,8 @@ class cord_publisher(Node):
                 continue
             marker_cords.marker_id = TAG_DICT[marker.marker_id]
             
-            marker_cords.x_pos = marker.pose.position.x
-            marker_cords.y_pos = marker.pose.position.y
+            marker_cords.x_pos = -marker.pose.position.x
+            marker_cords.y_pos = -marker.pose.position.y
 
             self.marker_publisher.publish(marker_cords)
             

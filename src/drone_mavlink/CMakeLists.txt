@@ -13,9 +13,9 @@ find_package(ament_cmake_python REQUIRED)
 # find_package(<dependency> REQUIRED)
 ament_python_install_package(${PROJECT_NAME})
 
-# install(PROGRAMS
-#   scripts/servo_param_setter
-#   DESTINATION lib/${PROJECT_NAME}
-# )
+install(PROGRAMS
+  scripts/flight_control
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 ament_package()
