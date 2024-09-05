@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Empty
+from example_interfaces.msg import Empty
+import os
 
 class FrameGrabber(Node):
     def __init__(self):
@@ -10,7 +11,7 @@ class FrameGrabber(Node):
 
     def listener_callback(self, data: Empty):
         self.get_logger().info('Receiving video frame grab request')
-        os.system("rpicam-still -n --camera-arg 1 ~/Pictures/$(date +%H_%M_%S__%d_%m_%Y).jpg")
+        os.system("rpicam-still -n --camera 0 -o ~/Pictures/$(date +%H_%M_%S__%d_%m_%Y).jpg")
 
 
 

@@ -22,8 +22,8 @@ class FlightState(Enum):
     TAKE_PHOTO = 7
     LAND = 8
     
-Waypoint = NamedTuple('Waypoint', [('x', float), ('y', float), ('z', float)])
-FlightTarget = NamedTuple('FlightTarget', [('waypoint', Waypoint), ('tag', str), ("next", FlightState)])
+Waypoint = NamedTuple('Waypoint', ['x', 'y', 'z'])
+FlightTarget = NamedTuple('FlightTarget', ['waypoint', 'tag', "next"])
 
 TARGETS = [
     FlightTarget(Waypoint(6.5, 6.5, 0), "A", FlightState.TAKE_PHOTO),
@@ -64,7 +64,7 @@ class FlightControl(Node):
         self._entry_executed = False
         self._after_wait_state = FlightState.TAKEOFF
         
-        self._flight_state = FlightState.WAITING
+        self._flight_state = FlightState.WAIT
         
         self._just_guided = None
         

@@ -26,19 +26,31 @@ def generate_launch_description():
                 executable="camera_node",
                 name="CAMERA_NODE",
                 parameters=[
-                    {"camera": 0},
+                    {"camera": 1},
                     {"format": "YUYV"},
                     {"height": 864},
                     {"width": 1536},
                     {"ExposureTime": 1000}
-                ]
-                    
+                ] 
     )
+    frame_grabber = Node(
+                package="frame_grabber",
+                executable="frame_grabber",
+                name="frame_grabber_node",
+            )
+    
+    flight_control = Node(
+                package="drone_mavlink",
+                executable="flight_control",
+                name="flight_control_node",
+            )
     
             
     return LaunchDescription([
         camera_node,
         aruco_tracker,
         cord_node,
+        frame_grabber,
+        flight_control
     ]
     )
