@@ -12,10 +12,13 @@ find_package(ament_cmake_python REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
+ament_python_install_package(${PROJECT_NAME})
   
+install(PROGRAMS 
+  scripts/cord_publisher
+
+DESTINATION lib/${PROJECT_NAME}
+)
 
 install(
   DIRECTORY launch config 

@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+
+from drone_aruco.cord_publisher import main
+
+main()

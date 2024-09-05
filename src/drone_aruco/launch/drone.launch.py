@@ -9,6 +9,12 @@ def generate_launch_description():
         str(get_package_share_path("drone_aruco") / "config" / f"aruco_tracker.yaml")
     ]
 
+    cord_node = Node(
+                package="drone_aruco",
+                executable="cord_publisher",
+                name="cord_publisher_node",
+            )
+
     aruco_tracker = Node(
                 package="aruco_opencv",
                 executable="aruco_tracker_autostart",
@@ -24,14 +30,15 @@ def generate_launch_description():
                     {"format": "YUYV"},
                     {"height": 864},
                     {"width": 1536},
-                    {"ExposureTime": 1000},
+                    {"ExposureTime": 1000}
                 ]
-                
+                    
     )
     
             
     return LaunchDescription([
         camera_node,
-        aruco_tracker
+        aruco_tracker,
+        cord_node,
     ]
     )
