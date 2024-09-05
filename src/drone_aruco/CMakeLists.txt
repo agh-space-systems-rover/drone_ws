@@ -13,20 +13,17 @@ find_package(ament_cmake_python REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 ament_python_install_package(${PROJECT_NAME})
+
+ament_export_dependencies(rosidl_default_runtime)
   
 install(PROGRAMS 
   scripts/cord_publisher
-
-DESTINATION lib/${PROJECT_NAME}
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 install(
   DIRECTORY launch config 
   DESTINATION share/${PROJECT_NAME}
 )
-  set(ament_cmake_copyright_FOUND TRUE)
-  set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
 
 ament_package()
